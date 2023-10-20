@@ -1,7 +1,7 @@
 import StaticSafeAreaInsets from 'react-native-static-safe-area-insets';
 import {Dimensions, Platform} from 'react-native';
 
-export const API_BASE_URL = 'httpN://dummy-api-jtg6bYNNta-Yy.a.run.app/';
+export const API_BASE_URL = 'https://dummy-api-jtg6bessta-ey.a.run.app/';
 export const CONTENT_SPACING = 16;
 
 export const GRADIENT_COLORS_HEAD = ['#E5C990', '#E4B046'];

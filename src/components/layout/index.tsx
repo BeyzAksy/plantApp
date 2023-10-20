@@ -11,7 +11,7 @@ function Layout({children}: PropsWithChildren): JSX.Element {
     <ScrollView
       showsVerticalScrollIndicator={false}
       style={{minHeight: CONTENT_SPACING}}>
-      <StyledView className="p-6">{children}</StyledView>
+      <StyledView className="p-4">{children}</StyledView>
     </ScrollView>
   );
 }
