@@ -25,7 +25,7 @@ const CustomHeader = (): JSX.Element => {
       source={require('../../assets/header-bg/header-bg.png')}>
       <Container className="flex-1 px-6 pb-2 justify-center">
         <Container className="justify-center pb-2 ">
-          <P style="leading-6 font-rubik">Hi, Plant Lover!</P>
+          <P nativewindStyle="leading-6 font-rubik">Hi, Plant Lover!</P>
           <Heading>Good Afternoon! ⛅</Heading>
         </Container>
         <SearchInput placeholder="Search for plants" />
