@@ -1,7 +1,5 @@
 import React from 'react';
 
-import {Text} from 'react-native';
-
 import Layout from '../../components/layout';
 import PremiumButton from '../../components/buttons/premium';
 import Flexbox from '../../components/layout/flexbox';
@@ -9,23 +7,22 @@ import P from '../../components/text/p';
 import FlatListSlider from '../../components/sliders/flatlist';
 import {useGetQuestionsQuery} from '../../data/api/questions-api';
 import QuestionCard from '../../components/question-card';
+import {useGetCategoriesQuery} from '../../data/api/categories-api';
+import CategoryCard from '../../components/category-card';
 
 function Home() {
-  const {
-    data: questions,
-    isLoading: isLoadingQuestions,
-    isError: isErrorQuestions,
-    error: errorQuestions,
-  } = useGetQuestionsQuery();
+  const {data: questions, isLoading: isLoadingQuestions} =
+    useGetQuestionsQuery();
+  const {data: categories, isLoading: isLoadingCategories} =
+    useGetCategoriesQuery();
 
-  if (isLoadingQuestions) {
-    console.log(questions);
-    return <Text>Loading...</Text>;
-  }
+  // if (isLoadingQuestions) {
+  //   return <Text>Loading...</Text>;
+  // }
 
-  if (isErrorQuestions) {
-    console.log(JSON.stringify(errorQuestions));
-  }
+  // if (isLoadingCategories) {
+  //   return <Text>Loading...</Text>;
+  // }
 
   return (
     <Layout>
@@ -39,10 +36,20 @@ function Home() {
       </Flexbox>
       <Flexbox>
         <FlatListSlider
+          horizontal
           data={!isLoadingQuestions ? questions : []}
           renderItemComponent={item => <QuestionCard question={item} />}
         />
       </Flexbox>
+      <Flexbox>
+        <FlatListSlider
+          data={!isLoadingCategories ? categories?.data : []}
+          numColumns={2}
+          scrollEnabled={false}
+          renderItemComponent={item => <CategoryCard category={item} />}
+        />
+      </Flexbox>
+      <Flexbox />
     </Layout>
   );
 }
