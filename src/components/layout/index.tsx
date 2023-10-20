@@ -1,0 +1,19 @@
+import React, {PropsWithChildren} from 'react';
+import {styled} from 'nativewind';
+import {ScrollView} from 'react-native-gesture-handler';
+import {View} from 'react-native';
+import {CONTENT_SPACING} from '../../constants';
+
+const StyledView = styled(View);
+
+function Layout({children}: PropsWithChildren): JSX.Element {
+  return (
+    <ScrollView
+      showsVerticalScrollIndicator={false}
+      style={{minHeight: CONTENT_SPACING}}>
+      <StyledView className="p-6">{children}</StyledView>
+    </ScrollView>
+  );
+}
+
+export default Layout;
