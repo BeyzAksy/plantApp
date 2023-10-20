@@ -3,7 +3,7 @@ import {ImageBackground, View} from 'react-native';
 import P from '../text/p';
 import Flexbox from '../layout/flexbox';
 import calculateResponsiveValue from '../../constants';
-import {Question} from '../../data/api/request-response';
+import {Question} from '../../data/api/types';
 import {styled} from 'nativewind';
 
 type QuestionCardProps = PropsWithChildren & {

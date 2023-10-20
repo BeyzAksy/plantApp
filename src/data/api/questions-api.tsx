@@ -1,6 +1,6 @@
 import {createApi, fetchBaseQuery} from '@reduxjs/toolkit/query/react';
 import {API_BASE_URL} from '../../constants';
-import {Question} from './request-response';
+import {Question} from './types';
 
 export const questionsApi = createApi({
   reducerPath: 'questionsApi',

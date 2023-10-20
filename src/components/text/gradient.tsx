@@ -16,7 +16,6 @@ type GradientTextProps = PropsWithChildren & {
 };
 
 function GradientText(props: GradientTextProps) {
-  console.log(props.end);
   return (
     // @ts-ignore
     <MaskedView maskElement={<StyledText {...props} className={props.style} />}>
