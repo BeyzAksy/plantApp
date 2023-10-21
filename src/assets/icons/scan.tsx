@@ -1,10 +1,11 @@
 import * as React from 'react';
 import Svg, {Path} from 'react-native-svg';
+import calculateResponsiveValue from '../../constants';
 
 const Scan: React.ComponentType = (props: any) => (
   <Svg
-    width="25"
-    height="25"
+    width={calculateResponsiveValue(18, 1)}
+    height={calculateResponsiveValue(18, 1)}
     viewBox="0 0 25 25"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"

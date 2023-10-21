@@ -10,6 +10,7 @@ import QuestionCard from '../../components/question-card';
 import {useGetCategoriesQuery} from '../../data/api/categories-api';
 import CategoryCard from '../../components/category-card';
 import {useNavigation} from '@react-navigation/native';
+import calculateResponsiveValue from '../../constants';
 
 function Home() {
   const {data: questions, isLoading: isLoadingQuestions} =
@@ -34,7 +35,9 @@ function Home() {
         />
       </Flexbox>
       <Flexbox>
-        <P nativewindStyle="font-rubik font-medium text-black-100">
+        <P
+          nativewindStyle="font-rubik text-black-100 font-semibold"
+          style={{fontSize: calculateResponsiveValue(15, 1)}}>
           Get Started
         </P>
       </Flexbox>
@@ -49,6 +52,9 @@ function Home() {
         <FlatListSlider
           data={!isLoadingCategories ? categories?.data : []}
           numColumns={2}
+          columnWrapperStyle={{
+            justifyContent: 'space-between',
+          }}
           scrollEnabled={false}
           renderItemComponent={item => <CategoryCard category={item} />}
         />

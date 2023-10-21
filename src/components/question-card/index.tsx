@@ -20,7 +20,11 @@ const QuestionCard = (props: QuestionCardProps) => {
     <StyledView className="px-1">
       <Background
         source={{uri: question.image_uri}}
-        className="w-60 h-40 justify-end"
+        className="justify-end"
+        style={{
+          width: calculateResponsiveValue(240, 1),
+          height: calculateResponsiveValue(164, 1),
+        }}
         imageStyle={{borderRadius: calculateResponsiveValue(12, 1)}}>
         <Flexbox justifyContent="center" nativewindStyle="h-2/5 w-auto px-4">
           <P nativewindStyle="text-white font-rubik font-medium">

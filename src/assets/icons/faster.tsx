@@ -1,10 +1,11 @@
 import * as React from 'react';
 import Svg, {Path, Rect} from 'react-native-svg';
+import calculateResponsiveValue from '../../constants';
 
 const Faster = (props: any) => (
   <Svg
-    width="36"
-    height="36"
+    width={calculateResponsiveValue(34, 1)}
+    height={calculateResponsiveValue(34, 1)}
     viewBox="0 0 36 36"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {Platform, Text, TouchableOpacity} from 'react-native';
+import {Platform, Text, TouchableOpacity, View} from 'react-native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {styled} from 'nativewind';
 
@@ -87,7 +87,7 @@ function BottomTabStack(): JSX.Element {
         headerShown: false,
         headerShadowVisible: false,
         tabBarStyle: {
-          padding: 15,
+          padding: calculateResponsiveValue(15, 1),
           height: calculateResponsiveValue(85, 1),
         },
       }}>
@@ -120,7 +120,13 @@ function BottomTabStack(): JSX.Element {
                 );
               } else if (route.name === 'ScanPlant') {
                 return (
-                  <ScanButton className="border-green-200 bg-green-100 border-4 absolute z-0 bottom-3 rounded-full p-4 ">
+                  <ScanButton
+                    className="border-green-200 bg-green-100 border-4 absolute z-0 rounded-full justify-center items-center"
+                    style={{
+                      bottom: calculateResponsiveValue(5, 2),
+                      width: calculateResponsiveValue(64, 1),
+                      height: calculateResponsiveValue(64, 1),
+                    }}>
                     <Scan />
                   </ScanButton>
                 );

@@ -3,6 +3,7 @@ import React from 'react';
 import {TextInput as BaseInput, View, KeyboardTypeOptions} from 'react-native';
 import {styled} from 'nativewind';
 import Search from '../../assets/icons/search';
+import calculateResponsiveValue from '../../constants';
 
 export type TextInputProps = {
   placeholder: string;
@@ -24,7 +25,9 @@ function SearchInput({
   editable = true,
 }: TextInputProps): JSX.Element {
   return (
-    <StyledView className="flex-row px-4 h-12 border-0.2 bg-white rounded-xl border-gray-300 opacity-88">
+    <StyledView
+      className="flex-row px-4 border-0.2 bg-white rounded-xl border-gray-300 opacity-88"
+      style={{height: calculateResponsiveValue(44, 1)}}>
       <StyledView className="justify-center items-center">
         <Search />
       </StyledView>

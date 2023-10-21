@@ -23,17 +23,31 @@ const PaywalItem = (props: PaywallItemProps) => {
 
   return (
     <SteyledView className="pr-4">
-      <SteyledView className="h-32 w-40 bg-green-500 opacity-90 rounded-2xl px-4 pt-1 justify-between">
+      <SteyledView
+        className="bg-green-500 opacity-90 rounded-2xl px-4 pt-1 justify-between"
+        style={{
+          width: calculateResponsiveValue(156, 1),
+          height: calculateResponsiveValue(130, 1),
+        }}>
         <Flexbox>
-          <SteyledView className="w-9 h-9 justify-center bg-black-100 rounded-lg items-center">
+          <SteyledView
+            className="justify-center bg-black-100 rounded-lg items-center"
+            style={{
+              width: calculateResponsiveValue(36, 1),
+              height: calculateResponsiveValue(35, 1),
+            }}>
             {item.icon}
           </SteyledView>
         </Flexbox>
         <SteyledView className="mb-4 justify-between">
-          <P nativewindStyle="text-white text-xl font-rubik font-medium">
+          <P
+            nativewindStyle="text-white font-rubik font-medium"
+            style={{fontSize: calculateResponsiveValue(20, 1)}}>
             {item.title}
           </P>
-          <P nativewindStyle="text-white text-sm font-white font-rubik opacity-70">
+          <P
+            nativewindStyle="text-white font-white font-rubik opacity-70"
+            style={{fontSize: calculateResponsiveValue(13, 1)}}>
             {item.description}
           </P>
         </SteyledView>
@@ -47,13 +61,12 @@ const StyledView = styled(View, 'flex h-full bg-green-300');
 
 function Paywall() {
   const navigation = useNavigation();
-  const {top} = useSafeAreaInsets();
-  console.log(StatusBar.currentHeight, top, Platform.OS);
   return (
     <StyledView>
       <ImageContainer
         resizeMode="cover"
-        className="flex h-5/6 justify-center"
+        className="flex justify-center"
+        style={{height: calculateResponsiveValue(571, 1)}}
         source={require('../../assets/paywall-bg/paywall-bg.png')}>
         <Flexbox nativewindStyle="flex p-4 h-full w-full" direction="column">
           <Flexbox
@@ -73,13 +86,19 @@ function Paywall() {
               marginBottom: calculateResponsiveValue(100, 1),
             }}>
             <Flexbox direction="column">
-              <P nativewindStyle="text-white text-2xl font-rubik font-light">
-                <P nativewindStyle="text-white text-3xl font-rubik font-extrabold">
+              <P
+                nativewindStyle="text-white font-rubik font-light"
+                style={{fontSize: calculateResponsiveValue(27, 1)}}>
+                <P
+                  nativewindStyle="text-white text-3xl font-rubik font-extrabold"
+                  style={{fontSize: calculateResponsiveValue(30, 1)}}>
                   PlantApp
                 </P>{' '}
                 Premium
               </P>
-              <P nativewindStyle="text-white font-rubik pt-2 font-light text-lg opacity-70">
+              <P
+                nativewindStyle="text-white font-rubik pt-2 font-light opacity-70"
+                style={{fontSize: calculateResponsiveValue(17, 1)}}>
                 Access All Features
               </P>
             </Flexbox>

@@ -20,7 +20,10 @@ const CategoryCard = (props: CategoryCardProps) => {
     <StyledView className="flex-wrap m-2 border border-gray-300 rounded-xl">
       <Background
         source={{uri: category.image.url}}
-        className="w-40 h-40"
+        style={{
+          width: calculateResponsiveValue(158, 1),
+          height: calculateResponsiveValue(152, 1),
+        }}
         resizeMethod="scale"
         resizeMode="cover"
         imageStyle={{borderRadius: calculateResponsiveValue(12, 1)}}>

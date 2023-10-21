@@ -1,5 +1,5 @@
-import StaticSafeAreaInsets from 'react-native-static-safe-area-insets';
-import {Dimensions, Platform} from 'react-native';
+import {Dimensions, PixelRatio} from 'react-native';
+
 import Scan from '../assets/icons/scan';
 import Faster from '../assets/icons/faster';
 
@@ -19,8 +19,11 @@ export type PremiumTypes = {
 export const PREMIUM_ITEMS: PremiumTypes[] = [
   {
     id: 1,
-    // eslint-disable-next-line react/react-in-jsx-scope
-    icon: <Scan />,
+
+    icon: (
+      // eslint-disable-next-line react/react-in-jsx-scope
+      <Scan />
+    ),
     title: 'Unlimited',
     description: 'Plant Identify',
   },
@@ -40,11 +43,9 @@ export const PREMIUM_ITEMS: PremiumTypes[] = [
   },
 ];
 
-export const SCREEN_HEIGHT = Platform.select<number>({
-  android:
-    Dimensions.get('screen').height - StaticSafeAreaInsets.safeAreaInsetsBottom,
-  ios: Dimensions.get('window').height,
-}) as number;
+// Dimensions
+
+const {height: SCREEN_HEIGHT} = Dimensions.get('window');
 
 export default function calculateResponsiveValue(
   baseValue: number,
@@ -56,5 +57,5 @@ export default function calculateResponsiveValue(
 
   const responsiveValue: number = baseValue * heightFactor * factor;
 
-  return Math.round(responsiveValue);
+  return PixelRatio.roundToNearestPixel(responsiveValue);
 }
