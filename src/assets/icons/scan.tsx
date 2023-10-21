@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Svg, {Path} from 'react-native-svg';
 
-const Scan = (props: any) => (
+const Scan: React.ComponentType = (props: any) => (
   <Svg
     width="25"
     height="25"

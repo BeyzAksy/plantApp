@@ -4,10 +4,16 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        black: {100: '#13231B'},
+        black: {
+          100: '#13231B',
+          200: '#FFFFFF',
+        },
         green: {
           100: '#28AF6E',
           200: '#2CCC80',
+          300: '#101E17',
+          400: '#13231B',
+          500: '#343b32',
         },
         gray: {
           100: '#BDBDBD',
@@ -38,6 +44,7 @@ module.exports = {
       },
       opacity: {
         88: '.88',
+        3: '.005',
       },
       fontSize: {
         13: '13px',

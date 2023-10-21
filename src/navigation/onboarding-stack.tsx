@@ -2,8 +2,7 @@ import React from 'react';
 
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
-// import {useNavigation} from '@react-navigation/native';
-import Onboarding from '../screens/onboarding';
+import Paywall from '../screens/onboarding/paywall';
 
 const Stack = createNativeStackNavigator();
 
@@ -15,10 +14,11 @@ function OnBoardingStack(): JSX.Element {
       <Stack.Group>
         <Stack.Screen
           options={{
+            statusBarStyle: 'light',
             headerShown: false,
           }}
-          component={Onboarding}
-          name="Onboarding"
+          component={Paywall}
+          name="Paywall"
         />
       </Stack.Group>
     </Stack.Navigator>

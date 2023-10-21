@@ -9,6 +9,7 @@ import {useGetQuestionsQuery} from '../../data/api/questions-api';
 import QuestionCard from '../../components/question-card';
 import {useGetCategoriesQuery} from '../../data/api/categories-api';
 import CategoryCard from '../../components/category-card';
+import {useNavigation} from '@react-navigation/native';
 
 function Home() {
   const {data: questions, isLoading: isLoadingQuestions} =
@@ -16,6 +17,7 @@ function Home() {
   const {data: categories, isLoading: isLoadingCategories} =
     useGetCategoriesQuery();
 
+  const navigation = useNavigation();
   // if (isLoadingQuestions) {
   //   return <Text>Loading...</Text>;
   // }
@@ -27,7 +29,9 @@ function Home() {
   return (
     <Layout>
       <Flexbox>
-        <PremiumButton />
+        <PremiumButton
+          onClick={() => navigation.navigate('Onboarding', {screen: 'Paywall'})}
+        />
       </Flexbox>
       <Flexbox>
         <P nativewindStyle="font-rubik font-medium text-black-100">
