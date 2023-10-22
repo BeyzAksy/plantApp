@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Svg, {Path} from 'react-native-svg';
 
-const Diagnose = (props: any) => (
+const DiagnoseIcon = (props: any) => (
   <Svg
     width="25"
     height="25"
@@ -16,4 +16,4 @@ const Diagnose = (props: any) => (
   </Svg>
 );
 
-export default Diagnose;
+export default DiagnoseIcon;
