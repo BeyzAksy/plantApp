@@ -20,12 +20,16 @@ const CustomHeader = (): JSX.Element => {
       style={{
         width: '100%',
         height: calculateResponsiveValue(180, 1),
-        paddingTop: top,
+        paddingTop: calculateResponsiveValue(top, 1),
       }}
       source={require('../../assets/header-bg/header-bg.png')}>
-      <Container className="flex-1 px-6 pb-2 justify-center">
+      <Container className="flex-1 px-6 justify-center">
         <Container className="justify-center pb-2 ">
-          <P nativewindStyle="leading-6 font-rubik">Hi, Plant Lover!</P>
+          <P
+            style={{fontSize: calculateResponsiveValue(16, 1)}}
+            nativewindStyle="leading-6 font-rubik">
+            Hi, Plant Lover!
+          </P>
           <Heading>Good Afternoon! ⛅</Heading>
         </Container>
         <SearchInput placeholder="Search for plants" />

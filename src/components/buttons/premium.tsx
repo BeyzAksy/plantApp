@@ -3,7 +3,10 @@ import React from 'react';
 import {Image, TouchableOpacity, View} from 'react-native';
 import {styled} from 'nativewind';
 import GradientText from '../text/gradient';
-import {GRADIENT_COLORS_HEAD, GRADIENT_COLORS_SUB} from '../../constants';
+import calculateResponsiveValue, {
+  GRADIENT_COLORS_HEAD,
+  GRADIENT_COLORS_SUB,
+} from '../../constants';
 import Arrow from '../../assets/icons/arrow';
 
 const Button = styled(TouchableOpacity);
@@ -16,7 +19,8 @@ type ButtonProps = {
 function PremiumButton({onClick}: ButtonProps) {
   return (
     <Button
-      className="rounded-2xl bg-brown-100 w-full h-16 flex flex-row justify-center items-center"
+      className="rounded-2xl bg-brown-100 w-full flex flex-row justify-center items-center"
+      style={{height: calculateResponsiveValue(64, 1)}}
       onPress={onClick}>
       <StyledView className="flex-auto justify-center items-center">
         <StyledImage
@@ -31,14 +35,16 @@ function PremiumButton({onClick}: ButtonProps) {
           colors={GRADIENT_COLORS_HEAD}
           start={{x: 0, y: 0}}
           end={{x: 1, y: 0}}
-          style="font-bold text-lg leading-5 font-rubik">
+          nativewindStyle="font-bold leading-5 font-rubik"
+          style={{fontSize: calculateResponsiveValue(16, 1)}}>
           FREE Premium Available
         </GradientText>
         <GradientText
           start={{x: 1, y: 0}}
           end={{x: 0, y: 0}}
           colors={GRADIENT_COLORS_SUB}
-          style="text-13 leading-4 font-rubik">
+          nativewindStyle="text-13 leading-4 font-rubik"
+          style={{fontSize: calculateResponsiveValue(13, 1)}}>
           Tap to upgrade your account!
         </GradientText>
       </StyledView>

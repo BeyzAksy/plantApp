@@ -2,6 +2,7 @@ import React from 'react';
 
 import {View, ViewStyle, StyleProp} from 'react-native';
 import {styled} from 'nativewind';
+import calculateResponsiveValue from '../../constants';
 
 type FlexboxProps = {
   children?: React.ReactNode;
@@ -28,6 +29,7 @@ const Flexbox: React.FC<FlexboxProps> = ({
   alignItems,
 }) => {
   const containerStyle: StyleProp<ViewStyle> = {
+    paddingVertical: calculateResponsiveValue(12, 1),
     flexDirection: direction,
     justifyContent: justifyContent,
     alignItems: alignItems,
@@ -35,7 +37,7 @@ const Flexbox: React.FC<FlexboxProps> = ({
   };
 
   return (
-    <StyledView style={containerStyle} className={`${nativewindStyle} py-3`}>
+    <StyledView style={containerStyle} className={`${nativewindStyle}`}>
       {children}
     </StyledView>
   );

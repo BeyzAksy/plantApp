@@ -6,6 +6,7 @@ type FlatListSliderProps = {
   numColumns?: number;
   horizontal?: boolean;
   scrollEnabled?: boolean;
+  columnWrapperStyle?: any;
   renderItemComponent: (item: any) => React.ReactElement;
 };
 
@@ -14,6 +15,7 @@ const FlatListSlider = ({
   numColumns,
   horizontal,
   scrollEnabled,
+  columnWrapperStyle,
   renderItemComponent,
 }: FlatListSliderProps) => {
   const renderItem = ({item}: {item: any}) => {
@@ -22,6 +24,7 @@ const FlatListSlider = ({
 
   return (
     <FlatList
+      columnWrapperStyle={columnWrapperStyle}
       data={data}
       keyExtractor={item => item.id.toString()}
       renderItem={renderItem}

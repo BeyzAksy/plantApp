@@ -8,16 +8,13 @@ export const Stack = createNativeStackNavigator();
 
 function RootStack(): JSX.Element {
   return (
-    <Stack.Navigator
-      screenOptions={{
-        statusBarStyle: 'dark',
-      }}>
+    <Stack.Navigator>
       <Stack.Group>
         <Stack.Screen
           options={{
             headerShown: false,
           }}
-          //   component={isOnBoardingDone ? BottomTabStack : OnBoardingStack}
+          // component={isOnBoardingDone ? BottomTabStack : OnBoardingStack}
           component={BottomTabStack}
           name="Welcome"
         />
@@ -25,8 +22,8 @@ function RootStack(): JSX.Element {
           options={{
             headerShown: false,
           }}
-          component={BottomTabStack}
-          name="Home"
+          component={OnBoardingStack}
+          name="Onboarding"
         />
       </Stack.Group>
     </Stack.Navigator>
