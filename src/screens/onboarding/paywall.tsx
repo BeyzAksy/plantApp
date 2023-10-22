@@ -72,9 +72,7 @@ function Paywall() {
         className="flex justify-center"
         style={{height: calculateResponsiveValue(571, 1)}}
         source={require('../../assets/paywall-bg/paywall-bg.png')}>
-        <Flexbox
-          nativewindStyle="flex p-4 h-full w-full mt-10"
-          direction="column">
+        <Flexbox nativewindStyle="flex p-4 h-full w-full" direction="column">
           <Flexbox
             alignItems="flex-end"
             style={{
@@ -103,12 +101,12 @@ function Paywall() {
                 Premium
               </P>
               <P
-                nativewindStyle="text-white font-rubik pt-2 font-light opacity-70"
+                nativewindStyle="text-white font-rubik pt-2 font-light opacity-70 bp-4"
                 style={{fontSize: calculateResponsiveValue(17, 1)}}>
                 Access All Features
               </P>
             </Flexbox>
-            <Flexbox>
+            <Flexbox nativewindStyle="mb-4">
               <FlatListSlider
                 horizontal={true}
                 data={PREMIUM_ITEMS}
@@ -129,7 +127,7 @@ function Paywall() {
                 </StyledView>
               ))}
             </StyledView>
-            <Flexbox nativewindStyle="">
+            <Flexbox>
               <PrimaryButton>
                 <P
                   style={{fontSize: calculateResponsiveValue(16, 1)}}
