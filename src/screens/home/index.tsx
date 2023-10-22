@@ -12,20 +12,13 @@ import CategoryCard from '../../components/category-card';
 import {useNavigation} from '@react-navigation/native';
 import calculateResponsiveValue from '../../constants';
 
-function Home() {
+function Home(): JSX.Element {
   const {data: questions, isLoading: isLoadingQuestions} =
     useGetQuestionsQuery();
   const {data: categories, isLoading: isLoadingCategories} =
     useGetCategoriesQuery();
 
   const navigation = useNavigation();
-  // if (isLoadingQuestions) {
-  //   return <Text>Loading...</Text>;
-  // }
-
-  // if (isLoadingCategories) {
-  //   return <Text>Loading...</Text>;
-  // }
 
   return (
     <Layout>

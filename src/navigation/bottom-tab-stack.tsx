@@ -7,7 +7,7 @@ import {styled} from 'nativewind';
 import Home from '../screens/home';
 import ScanPlant from '../screens/scan-plant';
 import MyGarden from '../screens/my-garden';
-import Profile from '../screens/Profile';
+import Profile from '../screens/profile';
 import CustomHeader from '../components/custom-header';
 import HomeIcon from '../assets/icons/home';
 import DiagnoseIcon from '../assets/icons/diagnose';
