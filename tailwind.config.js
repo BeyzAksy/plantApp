@@ -4,6 +4,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        mainborder: 'rgba(255, 255, 255, 0.05',
         black: {
           100: '#13231B',
           200: '#000000',
@@ -12,8 +13,8 @@ module.exports = {
           100: '#28AF6E',
           200: '#2CCC80',
           300: '#101E17',
-          400: '#13231B',
-          500: '#343b32',
+          400: '#28AF6E',
+          500: '#17221A',
         },
         gray: {
           100: '#BDBDBD',
@@ -41,6 +42,7 @@ module.exports = {
       borderWidth: {
         0.2: '0.2px',
         0.5: '0.5px',
+        1.5: '1.5px',
       },
       opacity: {
         88: '.88',

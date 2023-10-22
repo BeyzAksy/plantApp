@@ -16,10 +16,16 @@ export type PremiumTypes = {
   description: string;
 };
 
+export type PremiumOptionTypes = {
+  id: number;
+  title: string;
+  description: string;
+  value: string;
+};
+
 export const PREMIUM_ITEMS: PremiumTypes[] = [
   {
     id: 1,
-
     icon: (
       // eslint-disable-next-line react/react-in-jsx-scope
       <Scan />
@@ -40,6 +46,21 @@ export const PREMIUM_ITEMS: PremiumTypes[] = [
     icon: <Scan />,
     title: 'Detailed',
     description: 'Plant Care',
+  },
+];
+
+export const PREMIUM_OPTIONS: PremiumOptionTypes[] = [
+  {
+    id: 1,
+    title: '1 Month',
+    description: '$2.99/month, auto renewable',
+    value: 'monthly',
+  },
+  {
+    id: 2,
+    title: '1 Year',
+    description: 'First 3 days free, then $529,99/year',
+    value: 'yearly',
   },
 ];
 

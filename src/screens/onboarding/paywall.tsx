@@ -1,17 +1,18 @@
-import React from 'react';
+import React, {useState} from 'react';
 
-import {ImageBackground, Platform, StatusBar, View} from 'react-native';
+import {ImageBackground, Platform, View} from 'react-native';
 import {styled} from 'nativewind';
 import Flexbox from '../../components/layout/flexbox';
 import P from '../../components/text/p';
 import FlatListSlider from '../../components/sliders/flatlist';
 import calculateResponsiveValue, {
   PREMIUM_ITEMS,
+  PREMIUM_OPTIONS,
   PremiumTypes,
 } from '../../constants';
 import CloseButton from '../../components/buttons/close';
 import {useNavigation} from '@react-navigation/native';
-import {useSafeAreaInsets} from 'react-native-safe-area-context';
+import RadioButton from '../../components/inputs/radio';
 
 interface PaywallItemProps {
   item: PremiumTypes;
@@ -19,27 +20,27 @@ interface PaywallItemProps {
 const PaywalItem = (props: PaywallItemProps) => {
   const {item} = props;
 
-  const SteyledView = styled(View);
+  const StyledView = styled(View);
 
   return (
-    <SteyledView className="pr-4">
-      <SteyledView
-        className="bg-green-500 opacity-90 rounded-2xl px-4 pt-1 justify-between"
+    <StyledView className="pr-4">
+      <StyledView
+        className="rounded-2xl px-4 pt-1 justify-between bg-green-500"
         style={{
           width: calculateResponsiveValue(156, 1),
           height: calculateResponsiveValue(130, 1),
         }}>
         <Flexbox>
-          <SteyledView
+          <StyledView
             className="justify-center bg-black-100 rounded-lg items-center"
             style={{
               width: calculateResponsiveValue(36, 1),
               height: calculateResponsiveValue(35, 1),
             }}>
             {item.icon}
-          </SteyledView>
+          </StyledView>
         </Flexbox>
-        <SteyledView className="mb-4 justify-between">
+        <StyledView className="mb-4 justify-between">
           <P
             nativewindStyle="text-white font-rubik font-medium"
             style={{fontSize: calculateResponsiveValue(20, 1)}}>
@@ -50,19 +51,21 @@ const PaywalItem = (props: PaywallItemProps) => {
             style={{fontSize: calculateResponsiveValue(13, 1)}}>
             {item.description}
           </P>
-        </SteyledView>
-      </SteyledView>
-    </SteyledView>
+        </StyledView>
+      </StyledView>
+    </StyledView>
   );
 };
 
 const ImageContainer = styled(ImageBackground);
-const StyledView = styled(View, 'flex h-full bg-green-300');
+const StyledView = styled(View);
 
 function Paywall() {
   const navigation = useNavigation();
+  const [selectedOption, setSelectedOption] = useState<string>('yearly');
+
   return (
-    <StyledView>
+    <StyledView className="flex h-full bg-green-300">
       <ImageContainer
         resizeMode="cover"
         className="flex justify-center"
@@ -93,7 +96,7 @@ function Paywall() {
                   nativewindStyle="text-white text-3xl font-rubik font-extrabold"
                   style={{fontSize: calculateResponsiveValue(30, 1)}}>
                   PlantApp
-                </P>{' '}
+                </P>
                 Premium
               </P>
               <P
@@ -108,6 +111,20 @@ function Paywall() {
                 data={PREMIUM_ITEMS}
                 renderItemComponent={item => <PaywalItem item={item} />}
               />
+            </Flexbox>
+            <Flexbox>
+              {PREMIUM_OPTIONS?.map((item, index) => (
+                <StyledView className="pb-4" key={index}>
+                  <RadioButton
+                    key={item.id}
+                    title={item.title}
+                    description={item.description}
+                    value={item.value}
+                    selectedValue={selectedOption}
+                    onValueChange={setSelectedOption}
+                  />
+                </StyledView>
+              ))}
             </Flexbox>
           </Flexbox>
         </Flexbox>

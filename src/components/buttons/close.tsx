@@ -2,6 +2,7 @@ import {styled} from 'nativewind';
 import React from 'react';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import Close from '../../assets/icons/close';
+import calculateResponsiveValue from '../../constants';
 
 const Button = styled(TouchableOpacity);
 
@@ -14,9 +15,17 @@ const CloseButton = ({
 }) => {
   return (
     <Button
-      className="items-center justify-center bg-black-200 rounded-full w-8 h-8"
+      className="items-center justify-center bg-black-200 opacity-50 rounded-full"
+      style={{
+        width: calculateResponsiveValue(24, 1),
+        height: calculateResponsiveValue(24, 1),
+      }}
       onPress={navigateTo}>
-      <Close stroke={strokeColor} color={strokeColor} />
+      <Close
+        stroke={strokeColor}
+        color={strokeColor}
+        strokeWidth={calculateResponsiveValue(1, 0.5)}
+      />
     </Button>
   );
 };
