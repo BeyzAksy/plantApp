@@ -1,4 +1,4 @@
-import {createSlice} from '@reduxjs/toolkit';
+import {PayloadAction, createSlice} from '@reduxjs/toolkit';
 
 type FirstLaunchState = {
   firstLaunch: boolean;
@@ -12,8 +12,8 @@ const firstLaunchSlice = createSlice({
   name: 'firstLaunch',
   initialState,
   reducers: {
-    setFirstLaunch: state => {
-      state.firstLaunch = false;
+    setFirstLaunch: (state, action: PayloadAction<boolean>) => {
+      state.firstLaunch = action.payload;
     },
     clearFirstLauncState: () => {
       return initialState;

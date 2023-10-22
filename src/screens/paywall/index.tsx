@@ -14,6 +14,9 @@ import CloseButton from '../../components/buttons/close';
 import {useNavigation} from '@react-navigation/native';
 import RadioButton from '../../components/inputs/radio';
 import PrimaryButton from '../../components/buttons/primary';
+import {useDispatch} from 'react-redux';
+import {useFirstLaunch} from '../../data/hooks';
+import {setFirstLaunch} from '../../data/slices/first-launch-slice';
 
 interface PaywallItemProps {
   item: PremiumTypes;
@@ -61,8 +64,11 @@ const PaywalItem = (props: PaywallItemProps) => {
 const ImageContainer = styled(ImageBackground);
 const StyledView = styled(View);
 
-function Paywall() {
+function Paywall(): JSX.Element {
   const navigation = useNavigation();
+  const dispatch = useDispatch();
+  const isFirstLaunch = useFirstLaunch();
+
   const [selectedOption, setSelectedOption] = useState<string>('yearly');
 
   return (
@@ -72,9 +78,7 @@ function Paywall() {
         className="flex justify-center"
         style={{height: calculateResponsiveValue(571, 1)}}
         source={require('../../assets/paywall-bg/paywall-bg.png')}>
-        <Flexbox
-          nativewindStyle="flex p-4 h-full w-full mt-10"
-          direction="column">
+        <Flexbox nativewindStyle="flex p-4 h-full w-full" direction="column">
           <Flexbox
             alignItems="flex-end"
             style={{
@@ -83,7 +87,14 @@ function Paywall() {
                   ? calculateResponsiveValue(50, 1)
                   : calculateResponsiveValue(30, 1),
             }}>
-            <CloseButton navigateTo={() => navigation.navigate('Home')} />
+            <CloseButton
+              onPress={() => {
+                isFirstLaunch
+                  ? (dispatch(setFirstLaunch(false)),
+                    navigation.navigate('Home'))
+                  : navigation.navigate('Home');
+              }}
+            />
           </Flexbox>
           <Flexbox
             nativewindStyle="flex-1"
@@ -103,12 +114,12 @@ function Paywall() {
                 Premium
               </P>
               <P
-                nativewindStyle="text-white font-rubik pt-2 font-light opacity-70"
+                nativewindStyle="text-white font-rubik pt-2 font-light opacity-70 bp-4"
                 style={{fontSize: calculateResponsiveValue(17, 1)}}>
                 Access All Features
               </P>
             </Flexbox>
-            <Flexbox>
+            <Flexbox nativewindStyle="mb-4">
               <FlatListSlider
                 horizontal={true}
                 data={PREMIUM_ITEMS}
@@ -129,7 +140,7 @@ function Paywall() {
                 </StyledView>
               ))}
             </StyledView>
-            <Flexbox nativewindStyle="">
+            <Flexbox>
               <PrimaryButton>
                 <P
                   style={{fontSize: calculateResponsiveValue(16, 1)}}
