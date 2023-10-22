@@ -64,7 +64,7 @@ const PaywalItem = (props: PaywallItemProps) => {
 const ImageContainer = styled(ImageBackground);
 const StyledView = styled(View);
 
-function Paywall() {
+function Paywall(): JSX.Element {
   const navigation = useNavigation();
   const dispatch = useDispatch();
   const isFirstLaunch = useFirstLaunch();
