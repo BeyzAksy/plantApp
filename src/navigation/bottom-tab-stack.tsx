@@ -104,7 +104,7 @@ function BottomTabStack(): JSX.Element {
               ) : (
                 <StyledText
                   className={`${
-                    focused ? 'text-green-100' : 'text-gray-100'
+                    focused ? 'text-green-400' : 'text-gray-100'
                   } text-xs ${Platform.OS === 'android' ? 'mb-4' : ''}`}>
                   {tab.name}
                 </StyledText>
@@ -121,7 +121,7 @@ function BottomTabStack(): JSX.Element {
               } else if (route.name === 'ScanPlant') {
                 return (
                   <ScanButton
-                    className="border-green-200 bg-green-100 border-4 absolute z-0 rounded-full justify-center items-center"
+                    className="border-green-200 bg-green-400 border-4 absolute z-0 rounded-full justify-center items-center"
                     style={{
                       bottom: calculateResponsiveValue(5, 2),
                       width: calculateResponsiveValue(64, 1),

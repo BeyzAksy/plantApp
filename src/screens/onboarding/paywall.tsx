@@ -13,6 +13,7 @@ import calculateResponsiveValue, {
 import CloseButton from '../../components/buttons/close';
 import {useNavigation} from '@react-navigation/native';
 import RadioButton from '../../components/inputs/radio';
+import PrimaryButton from '../../components/buttons/primary';
 
 interface PaywallItemProps {
   item: PremiumTypes;
@@ -25,7 +26,7 @@ const PaywalItem = (props: PaywallItemProps) => {
   return (
     <StyledView className="pr-4">
       <StyledView
-        className="rounded-2xl px-4 pt-1 justify-between bg-green-500"
+        className="rounded-2xl px-4 pt-1 justify-between bg-green-600"
         style={{
           width: calculateResponsiveValue(156, 1),
           height: calculateResponsiveValue(130, 1),
@@ -71,7 +72,9 @@ function Paywall() {
         className="flex justify-center"
         style={{height: calculateResponsiveValue(571, 1)}}
         source={require('../../assets/paywall-bg/paywall-bg.png')}>
-        <Flexbox nativewindStyle="flex p-4 h-full w-full" direction="column">
+        <Flexbox
+          nativewindStyle="flex p-4 h-full w-full mt-10"
+          direction="column">
           <Flexbox
             alignItems="flex-end"
             style={{
@@ -112,7 +115,7 @@ function Paywall() {
                 renderItemComponent={item => <PaywalItem item={item} />}
               />
             </Flexbox>
-            <Flexbox>
+            <StyledView>
               {PREMIUM_OPTIONS?.map((item, index) => (
                 <StyledView className="pb-4" key={index}>
                   <RadioButton
@@ -125,6 +128,27 @@ function Paywall() {
                   />
                 </StyledView>
               ))}
+            </StyledView>
+            <Flexbox nativewindStyle="">
+              <PrimaryButton>
+                <P
+                  style={{fontSize: calculateResponsiveValue(16, 1)}}
+                  nativewindStyle="font-medium">
+                  Try free for 3 days
+                </P>
+              </PrimaryButton>
+              <P
+                nativewindStyle="text-center text-gray-200 font-light pt-4"
+                style={{fontSize: calculateResponsiveValue(9, 1)}}>
+                After the 3-day free trial period you’ll be charged ₺274.99 per
+                year unless you cancel before the trial expires. Yearly
+                Subscription is Auto-Renewable
+              </P>
+              <P
+                nativewindStyle="text-center text-gray-200 pt-4"
+                style={{fontSize: calculateResponsiveValue(11, 1)}}>
+                Terms • Privacy • Restore
+              </P>
             </Flexbox>
           </Flexbox>
         </Flexbox>
