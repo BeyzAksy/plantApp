@@ -66,7 +66,8 @@ export const PREMIUM_OPTIONS: PremiumOptionTypes[] = [
 
 // Dimensions
 
-const {height: SCREEN_HEIGHT} = Dimensions.get('window');
+export const {width: SCREEN_WIDTH, height: SCREEN_HEIGHT} =
+  Dimensions.get('window');
 
 export default function calculateResponsiveValue(
   baseValue: number,

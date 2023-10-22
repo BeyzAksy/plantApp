@@ -4,17 +4,11 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import OnBoardingStack from './onboarding-stack';
 import BottomTabStack from './bottom-tab-stack';
 import {useFirstLaunch} from '../data/hooks';
-import {useDispatch} from 'react-redux';
-import {clearFirstLauncState} from '../data/slices/first-launch-slice';
 
 export const Stack = createNativeStackNavigator();
 
 function RootStack(): JSX.Element {
   const {isFirstLaunch} = useFirstLaunch();
-
-  const dispatch = useDispatch();
-
-  dispatch(clearFirstLauncState());
 
   return (
     <Stack.Navigator>

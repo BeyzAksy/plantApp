@@ -5,6 +5,7 @@ import P from '../../components/text/p';
 import calculateResponsiveValue from '../../constants';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import PrimaryButton from '../../components/buttons/primary';
+import {useNavigation} from '@react-navigation/native';
 
 const Background = styled(ImageBackground);
 const StyledImage = styled(Image);
@@ -12,6 +13,7 @@ const StyledView = styled(View);
 
 function GetStarted(): JSX.Element {
   const {top} = useSafeAreaInsets();
+  const navigation = useNavigation();
 
   return (
     <Background
@@ -46,7 +48,7 @@ function GetStarted(): JSX.Element {
           />
         </StyledView>
         <StyledView className="px-6">
-          <PrimaryButton>
+          <PrimaryButton onClick={() => navigation.navigate('Onboarding')}>
             <P
               style={{fontSize: calculateResponsiveValue(16, 1)}}
               nativewindStyle="font-medium">
