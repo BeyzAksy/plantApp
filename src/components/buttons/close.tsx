@@ -8,10 +8,10 @@ const Button = styled(TouchableOpacity);
 
 const CloseButton = ({
   strokeColor = 'white',
-  navigateTo,
+  onPress,
 }: {
   strokeColor?: string;
-  navigateTo: (e?: any) => void;
+  onPress: (e?: any) => void;
 }) => {
   return (
     <Button
@@ -20,7 +20,7 @@ const CloseButton = ({
         width: calculateResponsiveValue(24, 1),
         height: calculateResponsiveValue(24, 1),
       }}
-      onPress={navigateTo}>
+      onPress={onPress}>
       <Close
         stroke={strokeColor}
         color={strokeColor}
