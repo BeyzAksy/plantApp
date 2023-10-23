@@ -128,7 +128,7 @@ function BottomTabStack(): JSX.Element {
                       width: calculateResponsiveValue(64, 1),
                       height: calculateResponsiveValue(64, 1),
                     }}>
-                    <Scan />
+                    <Scan size={25} />
                   </ScanButton>
                 );
               } else if (route.name === 'MyGarden') {

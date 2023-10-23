@@ -4,8 +4,8 @@ import calculateResponsiveValue from '../../constants';
 
 const Scan: React.ComponentType = (props: any) => (
   <Svg
-    width={calculateResponsiveValue(18, 1)}
-    height={calculateResponsiveValue(18, 1)}
+    width={calculateResponsiveValue(props.size, 1)}
+    height={calculateResponsiveValue(props.size, 1)}
     viewBox="0 0 25 25"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"

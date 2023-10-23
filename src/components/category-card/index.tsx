@@ -17,7 +17,7 @@ const CategoryCard = (props: CategoryCardProps) => {
   const {category} = props;
 
   return (
-    <StyledView className="flex-wrap m-2 border border-gray-300 rounded-xl">
+    <StyledView className="m-2 border border-gray-300 rounded-xl">
       <Background
         source={{uri: category.image.url}}
         style={{

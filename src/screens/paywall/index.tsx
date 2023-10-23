@@ -91,8 +91,8 @@ function Paywall(): JSX.Element {
               onPress={() => {
                 isFirstLaunch
                   ? (dispatch(setFirstLaunch(false)),
-                    navigation.navigate('Home'))
-                  : navigation.navigate('Home');
+                    navigation.navigate('HomeStack'))
+                  : navigation.navigate('HomStack');
               }}
             />
           </Flexbox>
