@@ -24,7 +24,9 @@ function Home(): JSX.Element {
     <Layout>
       <Flexbox>
         <PremiumButton
-          onClick={() => navigation.navigate('Onboarding', {screen: 'Paywall'})}
+          onClick={() =>
+            navigation.navigate('OnboardingStack', {screen: 'Paywall'})
+          }
         />
       </Flexbox>
       <Flexbox>
@@ -47,6 +49,7 @@ function Home(): JSX.Element {
           numColumns={2}
           columnWrapperStyle={{
             justifyContent: 'space-between',
+            // marginHorizontal: calculateResponsiveValue(14, 1),
           }}
           scrollEnabled={false}
           renderItemComponent={item => <CategoryCard category={item} />}

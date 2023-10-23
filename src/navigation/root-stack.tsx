@@ -18,14 +18,14 @@ function RootStack(): JSX.Element {
             headerShown: false,
           }}
           component={isFirstLaunch ? OnBoardingStack : BottomTabStack}
-          name="Home"
+          name="HomeStack"
         />
         <Stack.Screen
           options={{
             headerShown: false,
           }}
           component={OnBoardingStack}
-          name="Onboarding"
+          name="OnboardingStack"
         />
       </Stack.Group>
     </Stack.Navigator>

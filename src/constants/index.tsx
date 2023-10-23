@@ -28,7 +28,7 @@ export const PREMIUM_ITEMS: PremiumTypes[] = [
     id: 1,
     icon: (
       // eslint-disable-next-line react/react-in-jsx-scope
-      <Scan />
+      <Scan size={18} />
     ),
     title: 'Unlimited',
     description: 'Plant Identify',
@@ -43,7 +43,7 @@ export const PREMIUM_ITEMS: PremiumTypes[] = [
   {
     id: 3,
     // eslint-disable-next-line react/react-in-jsx-scope
-    icon: <Scan />,
+    icon: <Scan size={18} />,
     title: 'Detailed',
     description: 'Plant Care',
   },
